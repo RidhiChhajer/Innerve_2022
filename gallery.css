@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+body {
+  display: grid;
+  place-content: center;
+  background: #22003d;
+  font-family: "Quicksand", sans-serif;
+}
+
+.gallery-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2em 0;
+}
+
+.neon {
+  /* font-family: "Quicksand", sans-serif; */
+  color: #fb4264;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #f40a35;
+}
+
+.flux {
+  /* font-family: "Quicksand", sans-serif; */
+  color: #426dfb;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #2356ff;
+}
+
+.neon {
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #fa1c16, 0 0 3vw #fa1c16, 0 0 10vw #fa1c16,
+      0 0 10vw #fa1c16, 0 0 0.4vw #fed128, 0.5vw 0.5vw 0.1vw #806914;
+    color: #fed128;
+  }
+  50% {
+    text-shadow: 0 0 0.5vw #800e0b, 0 0 1.5vw #800e0b, 0 0 5vw #800e0b,
+      0 0 5vw #800e0b, 0 0 0.2vw #800e0b, 0.5vw 0.5vw 0.1vw #40340a;
+    color: #806914;
+  }
+}
+
+.flux {
+  animation: flux 2s linear infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 2s linear infinite;
+  -o-animation: flux 2s linear infinite;
+}
+
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041ff, 0 0 3vw #1041ff, 0 0 10vw #1041ff,
+      0 0 10vw #1041ff, 0 0 0.4vw #8bfdfe, 0.5vw 0.5vw 0.1vw #147280;
+    color: #28d7fe;
+  }
+  50% {
+    text-shadow: 0 0 0.5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180,
+      0 0 5vw #082180, 0 0 0.2vw #082180, 0.5vw 0.5vw 0.1vw #0a3940;
+    color: #146c80;
+  }
+}
+
+
+.waterfall {
+  width: 80vw;
+  margin: 2em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 1em;
+  grid-auto-flow: row dense;
+  grid-auto-rows: 10vh;
+}
+.waterfall .item:nth-of-type(3n + 1) {
+  grid-row: auto / span 3;
+}
+.waterfall .item:nth-of-type(3n + 2) {
+  grid-row: auto / span 4;
+}
+.waterfall .item:nth-of-type(3n + 3) {
+  grid-row: auto / span 5;
+}
+.waterfall .item {
+  overflow: hidden;
+  transform: rotate(-7.5deg);
+  filter: grayscale(100%) brightness(70%) sepia(50%) hue-rotate(-100deg)
+    saturate(500%) contrast(1);
+  transition: transform 0.2s, border 0.1s;
+  box-sizing: border-box;
+  border: 1em solid transparent;
+}
+.waterfall .item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transform: rotate(15deg);
+  transition: all 0.3s;
+}
+.waterfall .item.inbound {
+  transform: rotate(0);
+  filter: none;
+  border-bottom: 1px solid white;
+}
+.waterfall .item.inbound img {
+  transform: rotate(0);
+}
